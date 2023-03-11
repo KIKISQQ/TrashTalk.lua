@@ -1,21 +1,18 @@
-local words = {
+local plr = game.Players.LocalPlayer
+local keybind = 'z'
+local table = {
     'dog',
     'Skill Issue',
     'Quit the game',
     'XD ',
     'Sit NN Dog',
-    'I would quit if i had that aim',
-'son ez ez',
+    'L',
+    'son ez ez',
     'imagine',
 }
-
-local player = game.Players.LocalPlayer
-local keybind = 'z'
-
-local event = game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
-
-player:GetMouse().KeyDown:connect(function(key)
-    if key == keybind then
-        event:FireServer(words[math.random(#words)], "All")
+local sendmsg = game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
+plr:GetMouse().KeyDown:connect(function(bind)
+    if bind == keybind then
+        sendmsg:FireServer(table[math.random(#table)], "All")
     end
 end)
